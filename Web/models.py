@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Person(models.Model):
+    full_name = models.CharField(max_length=256, verbose_name="Full Name :")
+    biography = models.TextField(verbose_name="Biography :")
+    picture = models.FileField(verbose_name="Picture :")
