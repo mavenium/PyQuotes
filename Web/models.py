@@ -20,8 +20,8 @@ class Category(models.Model):
 
 class Quote(models.Model):
     content = models.TextField(verbose_name="Quote Content :")
-    person = models.OneToOneField(Person, on_delete=models.CASCADE)
-    category = models.OneToOneField(Category, on_delete=models.DO_NOTHING)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
 
     def __str__(self):
-        pass
+        return self.content
