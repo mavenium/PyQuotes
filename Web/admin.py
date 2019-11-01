@@ -2,7 +2,17 @@ from django.contrib import admin
 
 from .models import Person, Category, Quote
 
-# Register your models here.
+# Register Person model
 admin.site.register(Person)
+
+# Register Category model
 admin.site.register(Category)
-admin.site.register(Quote)
+
+
+class QuoteAdmin(admin.ModelAdmin):
+    list_display = ['content', 'person', 'display_category']
+    Quote.display_category.short_description = 'Categories'
+
+
+# Register Quote model
+admin.site.register(Quote, QuoteAdmin)

@@ -23,5 +23,8 @@ class Quote(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
 
+    def display_category(self):
+        return ', '.join([cat.title for cat in self.category.all()])
+
     def __str__(self):
         return self.content
