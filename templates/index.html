@@ -40,17 +40,43 @@
 
     <div class="row">
 
+        <div class="col-md-4">
+
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header"><strong>Persons</strong></div>
+                <div class="card-body">
+                    <ul class="card-text">
+                        {% for person in persons %}
+                            <li>{{ person }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header"><strong>Categories</strong></div>
+                <div class="card-body">
+                    <ul class="card-text">
+                        {% for category in categories %}
+                            <li>{{ category }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
         <div class="col-md-8">
 
             {% for quotes in object_list %}
-            <div class="card mb-3">
-              <div class="card-header">
-                <strong>{{ quotes.person }}</strong>
+                <div class="card mb-3">
+                <div class="card-header">
+                  <strong>{{ quotes.person }}</strong>
               </div>
-              <div class="card-body">
-                <p class="card-text">{{ quotes.content }}</p>
+                <div class="card-body">
+                  <p class="card-text">{{ quotes.content }}</p>
               </div>
-              <div class="card-footer text-muted">
+                <div class="card-footer text-muted">
                 {% for cat in quotes.category.all %}
                     <span class="badge badge-secondary">{{ cat }}</span>
                 {% endfor %}
@@ -60,27 +86,6 @@
 
         </div>
 
-        <div class="col-md-4">
-
-            <div class="card text-white bg-secondary mb-3">
-              <div class="card-header"><strong>Persons</strong></div>
-              <div class="card-body">
-                <p class="card-text">
-
-                </p>
-              </div>
-            </div>
-
-            <div class="card text-white bg-dark mb-3">
-              <div class="card-header"><strong>Categories</strong></div>
-              <div class="card-body">
-                <p class="card-text">
-
-                </p>
-              </div>
-            </div>
-
-        </div>
     </div>
 </div>
 
