@@ -7,6 +7,7 @@ from Web.models import Quote, Person, Category
 # Create your views here.
 class Index(generic.ListView):
     model = Quote
+    paginate_by = 1
     template_name = 'index.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
