@@ -57,7 +57,7 @@
                 <div class="card-body">
                     <ul class="card-text">
                         {% for person in persons %}
-                            <li>{{ person }}</li>
+                            <li><a class="text-light" href="{% url 'quotes_by_person' person.pk %}" title="{{ person }}">{{ person }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
