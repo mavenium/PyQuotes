@@ -70,7 +70,7 @@
                 <div class="card-body">
                     <ul class="card-text">
                         {% for category in categories %}
-                            <li>{{ category }}</li>
+                            <li><a class="text-light" href="{% url 'quotes_by_category' category.pk %}">{{ category }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
