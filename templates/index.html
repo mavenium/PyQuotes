@@ -10,10 +10,14 @@
 </head>
 <body>
 
+<!-- container -->
 <div class="container">
 
+    <!-- row -->
     <div class="row">
         <div class="col-md-12">
+
+            <!-- header -->
             <header>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-3 mb-3">
                   <a class="navbar-brand" href="{% url 'index' %}">PyQuotes</a>
@@ -23,7 +27,7 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Persons</a>
@@ -35,14 +39,20 @@
                   </div>
                 </nav>
             </header>
+            <!-- /header -->
+
         </div>
     </div>
+    <!-- /row -->
 
+    <!-- row -->
     <div class="row">
 
+        <!-- col-md-4 -->
         <div class="col-md-4">
 
-            <div class="card text-white bg-secondary mb-3">
+            <!-- Persons -->
+            <div class="card text-white bg-secondary mb-3" id="persons">
                 <div class="card-header"><strong>Persons</strong></div>
                 <div class="card-body">
                     <ul class="card-text">
@@ -52,8 +62,10 @@
                     </ul>
                 </div>
             </div>
+            <!-- /Persons -->
 
-            <div class="card text-white bg-dark mb-3">
+            <!-- Categories -->
+            <div class="card text-white bg-dark mb-3" id="categories">
                 <div class="card-header"><strong>Categories</strong></div>
                 <div class="card-body">
                     <ul class="card-text">
@@ -63,19 +75,22 @@
                     </ul>
                 </div>
             </div>
+            <!-- /Categories -->
 
         </div>
+        <!-- /col-md-4 -->
 
+        <!-- col-md-8 -->
         <div class="col-md-8">
 
             {% for quotes in object_list %}
                 <div class="card mb-3">
                 <div class="card-header">
-                  <strong>{{ quotes.person }}</strong>
-              </div>
+                    <strong>{{ quotes.person }}</strong>
+                </div>
                 <div class="card-body">
                   <p class="card-text">{{ quotes.content }}</p>
-              </div>
+                </div>
                 <div class="card-footer text-muted">
                 {% for cat in quotes.category.all %}
                     <span class="badge badge-secondary">{{ cat }}</span>
@@ -117,10 +132,13 @@
             {% endif %}
 
         </div>
+        <!-- /col-md-8 -->
 
     </div>
-</div>
+    <!-- /row -->
 
+</div>
+<!-- /container -->
 
 <!-- JavaScript -->
 <script src="{% static '/js/jquery.min.js' %}"></script>
