@@ -1,0 +1,24 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    {{ super }} Persons
+{% endblock %}
+
+{% block content %}
+    {% for person in persons %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ person.picture.url }}" class="card-img" alt="{{ person.full_name }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ person.full_name }}</h5>
+                        <p class="card-text">{{ person.biography }}</p>
+                        <a href="{% url 'quotes_by_person' person.pk %}" class="btn btn-primary">Show the quotes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
