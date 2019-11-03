@@ -28,3 +28,8 @@ class Persons(Master):
 class QuotesByPerson(Index):
     def get_queryset(self):
         return Quote.objects.filter(person=self.kwargs['person_pk'])
+
+
+class QuotesByCategory(Index):
+    def get_queryset(self):
+        return Quote.objects.filter(category=self.kwargs['category_pk'])
