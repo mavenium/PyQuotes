@@ -1,149 +1,23 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+{% extends 'master.html' %}
 
-    <title>PyQuotes | Index</title>
-</head>
-<body>
+{% block title %}
+    {{ super }} Index
+{% endblock %}
 
-<!-- container -->
-<div class="container">
-
-    <!-- row -->
-    <div class="row">
-        <div class="col-md-12">
-
-            <!-- header -->
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-3 mb-3">
-                  <a class="navbar-brand" href="{% url 'index' %}">PyQuotes</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Persons</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-            </header>
-            <!-- /header -->
-
+{% block content %}
+    {% for quotes in object_list %}
+        <div class="card mb-3">
+        <div class="card-header">
+            <strong>{{ quotes.person }}</strong>
         </div>
+        <div class="card-body">
+          <p class="card-text">{{ quotes.content }}</p>
+        </div>
+        <div class="card-footer text-muted">
+        {% for cat in quotes.category.all %}
+            <span class="badge badge-secondary">{{ cat }}</span>
+        {% endfor %}
+      </div>
     </div>
-    <!-- /row -->
-
-    <!-- row -->
-    <div class="row">
-
-        <!-- col-md-4 -->
-        <div class="col-md-4">
-
-            <!-- Persons -->
-            <div class="card text-white bg-secondary mb-3" id="persons">
-                <div class="card-header"><strong>Persons</strong></div>
-                <div class="card-body">
-                    <ul class="card-text">
-                        {% for person in persons %}
-                            <li>{{ person }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            <!-- /Persons -->
-
-            <!-- Categories -->
-            <div class="card text-white bg-dark mb-3" id="categories">
-                <div class="card-header"><strong>Categories</strong></div>
-                <div class="card-body">
-                    <ul class="card-text">
-                        {% for category in categories %}
-                            <li>{{ category }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            <!-- /Categories -->
-
-        </div>
-        <!-- /col-md-4 -->
-
-        <!-- col-md-8 -->
-        <div class="col-md-8">
-
-            {% for quotes in object_list %}
-                <div class="card mb-3">
-                <div class="card-header">
-                    <strong>{{ quotes.person }}</strong>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">{{ quotes.content }}</p>
-                </div>
-                <div class="card-footer text-muted">
-                {% for cat in quotes.category.all %}
-                    <span class="badge badge-secondary">{{ cat }}</span>
-                {% endfor %}
-              </div>
-            </div>
-            {% endfor %}
-
-            {% if page_obj.paginator.num_pages > 0 %}
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-
-                    {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                    {% endif %}
-
-                    <li class="page-item disabled">
-                        <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-                    </li>
-
-                    {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item disabled">
-                        <span class="page-link">Next</span>
-                    </li>
-                    {% endif %}
-
-              </ul>
-            </nav>
-            {% endif %}
-
-        </div>
-        <!-- /col-md-8 -->
-
-    </div>
-    <!-- /row -->
-
-</div>
-<!-- /container -->
-
-<!-- JavaScript -->
-<script src="{% static '/js/jquery.min.js' %}"></script>
-<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
-<!-- /JavaScript -->
-
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
