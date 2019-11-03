@@ -23,3 +23,8 @@ class Persons(Master):
     model = Person
     paginate_by = 1
     template_name = 'persons.html'
+
+
+class QuotesByPerson(Index):
+    def get_queryset(self):
+        return Quote.objects.filter(person=self.kwargs['person_pk'])
