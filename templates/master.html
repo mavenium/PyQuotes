@@ -53,7 +53,7 @@
                 <div class="card-header"><strong>Persons</strong></div>
                 <div class="card-body">
                     <ul class="card-text">
-                        {% for person in persons %}
+                        {% for person in persons_widget %}
                             <li><a class="text-light" href="{% url 'quotes_by_person' person.pk %}" title="{{ person }}">{{ person }}</a></li>
                         {% endfor %}
                     </ul>
@@ -66,7 +66,7 @@
                 <div class="card-header"><strong>Categories</strong></div>
                 <div class="card-body">
                     <ul class="card-text">
-                        {% for category in categories %}
+                        {% for category in categories_widget %}
                             <li><a class="text-light" href="{% url 'quotes_by_category' category.pk %}">{{ category }}</a></li>
                         {% endfor %}
                     </ul>
