@@ -14,6 +14,7 @@ class Master(generic.ListView):
 
 class Index(Master):
     model = Quote
+    ordering = ['-pk']
     paginate_by = 1
     context_object_name = 'quotes_object_list'
     template_name = 'index.html'
