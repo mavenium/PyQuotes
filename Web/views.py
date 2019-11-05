@@ -27,8 +27,10 @@ class Persons(Master):
 
 
 class Random(Index):
+    paginate_by = False
+
     def get_queryset(self):
-        return Quote.objects.order_by("?")
+        return Quote.objects.order_by("?")[:10]
 
 
 class QuotesByPerson(Index):
