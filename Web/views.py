@@ -26,6 +26,11 @@ class Persons(Master):
     template_name = 'persons.html'
 
 
+class Random(Index):
+    def get_queryset(self):
+        return Quote.objects.order_by("?")
+
+
 class QuotesByPerson(Index):
     def get_queryset(self):
         return Quote.objects.filter(person=self.kwargs['person_pk'])
