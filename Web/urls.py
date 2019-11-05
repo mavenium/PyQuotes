@@ -7,5 +7,5 @@ urlpatterns = [
     path('persons/', Persons.as_view(), name='persons'),
     path('qbp/<person_pk>/', QuotesByPerson.as_view(), name='quotes_by_person'),
     path('qbc/<category_pk>/', QuotesByCategory.as_view(), name='quotes_by_category'),
-    path('random', Random.as_view(), name='random'),
+    path('random/', Random.as_view(), name='random'),
 ]
