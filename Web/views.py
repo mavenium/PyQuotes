@@ -1,6 +1,10 @@
 from django.views import generic
 
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
 from Web.models import Quote, Person, Category
+from Web.serializers import PersonSerializer
 
 
 # Create your views here.
@@ -42,3 +46,13 @@ class QuotesByPerson(Index):
 class QuotesByCategory(Index):
     def get_queryset(self):
         return Quote.objects.filter(category=self.kwargs['category_pk'])
+
+
+# REST API Views
+class APIPersons(viewsets.ModelViewSet):
+    queryset = Person.objects.all().order_by('-pk')
+    serializer_class = PersonSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+
+
