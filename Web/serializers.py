@@ -13,3 +13,12 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
         fields = ['title', 'pk']
+
+
+class QuoteSerializer(serializers.ModelSerializer):
+    person = serializers.StringRelatedField(many=False)
+    category = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Quote
+        fields = ['content', 'person', 'category', 'pk']
