@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Web.apps.WebConfig'
+    'Web.apps.WebConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,8 +128,11 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
 # MEDIA_URL = os.path.join(BASE_DIR, 'media/')
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASS': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
