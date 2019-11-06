@@ -2,10 +2,11 @@ from django.urls import path, re_path, include
 
 from rest_framework import routers
 
-from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory, APIPersons
+from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory, APIPersons, APICategories
 
 router = routers.DefaultRouter()
 router.register(r'persons', APIPersons)
+router.register(r'categories', APICategories)
 
 urlpatterns = [
     path('', Index.as_view(), name='index'),
