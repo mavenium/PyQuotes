@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from Web.models import Quote, Person, Category
-from Web.serializers import PersonSerializer
+from Web.serializers import PersonSerializer, CategorySerializer
 
 
 # Create your views here.
@@ -55,4 +55,7 @@ class APIPersons(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
-
+class APICategories(viewsets.ModelViewSet):
+    queryset = Category.objects.all().order_by('-pk')
+    serializer_class = CategorySerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
