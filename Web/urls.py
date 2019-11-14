@@ -2,13 +2,8 @@ from django.urls import path, re_path, include
 
 from rest_framework import routers
 
-from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory, APIPersons, APICategories, APIQuotes, APIQuotesRandom
-
-router = routers.DefaultRouter()
-router.register(r'persons', APIPersons)
-router.register(r'categories', APICategories)
-router.register(r'quotes', APIQuotes)
-router.register(r'quotes_random', APIQuotesRandom)
+from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory
+from Web.api_views import APIPersons, APICategories, APIQuotes, APIQuotesByPerson, APIQuotesByCategory, APIQuotesRandom
 
 urlpatterns = [
     path('', Index.as_view(), name='index'),
@@ -16,5 +11,10 @@ urlpatterns = [
     path('qbp/<person_pk>/', QuotesByPerson.as_view(), name='quotes_by_person'),
     path('qbc/<category_pk>/', QuotesByCategory.as_view(), name='quotes_by_category'),
     path('random/', Random.as_view(), name='random'),
-    path('api/', include(router.urls)),
+    path('api/persons/', APIPersons.as_view(), name="api_persons"),
+    path('api/categories/', APICategories.as_view(), name="api_categories"),
+    path('api/quotes/', APIQuotes.as_view(), name="api_quotes"),
+    path('api/qbp/<int:pk>/', APIQuotesByPerson.as_view(), name="api_quotes_by_person"),
+    path('api/qbc/<int:pk>/', APIQuotesByCategory.as_view(), name="api_quotes_by_category"),
+    path('api/quotes_random/', APIQuotesRandom.as_view(), name="api_quotes_random"),
 ]

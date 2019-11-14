@@ -2,6 +2,8 @@ from django.views import generic
 
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from Web.models import Quote, Person, Category
 from Web.serializers import PersonSerializer, CategorySerializer, QuoteSerializer
@@ -46,28 +48,3 @@ class QuotesByPerson(Index):
 class QuotesByCategory(Index):
     def get_queryset(self):
         return Quote.objects.filter(category=self.kwargs['category_pk'])
-
-
-# REST API Views
-class APIPersons(viewsets.ModelViewSet):
-    queryset = Person.objects.all().order_by('-pk')
-    serializer_class = PersonSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-
-
-class APICategories(viewsets.ModelViewSet):
-    queryset = Category.objects.all().order_by('-pk')
-    serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-
-
-class APIQuotes(viewsets.ModelViewSet):
-    queryset = Quote.objects.all().order_by('-pk')
-    serializer_class = QuoteSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-
-
-class APIQuotesRandom(viewsets.ModelViewSet):
-    queryset = Quote.objects.order_by("?")[:10]
-    serializer_class = QuoteSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
