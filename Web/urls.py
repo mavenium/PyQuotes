@@ -1,6 +1,4 @@
-from django.urls import path, re_path, include
-
-from rest_framework import routers
+from django.urls import path
 
 from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory
 from Web.api_views import APIPersons, APICategories, APIQuotes, APIQuotesByPerson, APIQuotesByCategory, APIQuotesRandom
