@@ -1,12 +1,6 @@
 from django.views import generic
 
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.views import APIView
-from rest_framework.response import Response
-
 from Web.models import Quote, Person, Category
-from Web.serializers import PersonSerializer, CategorySerializer, QuoteSerializer
 
 
 # Create your views here.
