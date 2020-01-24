@@ -32,7 +32,7 @@ PyQuotes is a Django-based web application and REST API. That will allow you to 
 > Persons Page
 
 ![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Random.png)
-> Random Page
+> Random Quotes Page
 
 ![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Quotes%20By%20Person.png)
 > Show Quotes By Person
@@ -41,7 +41,7 @@ PyQuotes is a Django-based web application and REST API. That will allow you to 
 > Show Quotes By Category
 
 ------------
-### How to install and run (Linux and MAC)
+### How to install and run (GNU/Linux and Mac)
                 
 1. Install `git`,`python3`, `pip3`, `virtualenv` in your operating system
 2. Create a development environment ready by using these commands
@@ -60,6 +60,18 @@ python manage.py runserver		# Run the project
                 
 
 ------------
+###REST API
+```
+http://127.0.0.1:8000/api/persons/		# JSON objects of persons
+http://127.0.0.1:8000/api/categories/		# JSON objects of categories
+http://127.0.0.1:8000/api/quotes/		# JSON objects of quotes
+http://127.0.0.1:8000/api/quotes_random/		# JSON objects of quotes by random
+http://127.0.0.1:8000/api/qbp/pk/		# JSON objects of quotes by person pk
+http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
+```
+
+------------
+
 ###TODO list
 
 - [ ] Create useful tests
