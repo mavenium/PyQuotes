@@ -56,11 +56,11 @@ python manage.py migrate		# Create database tables
 python manage.py collectstatic		# Create statics files
 python manage.py runserver		# Run the project
 ```
-3. Go to  `http://localhost:8000/` to use project
+3. Go to  `http://127.0.0.1:8000/` to use project
                 
 
 ------------
-###REST API
+### REST API
 
 ```
 http://127.0.0.1:8000/api/persons/		# JSON objects of persons
@@ -72,6 +72,6 @@ http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
 ```
 
 ------------
-###TODO list
+### TODO list
 
 - [ ] Create useful tests
