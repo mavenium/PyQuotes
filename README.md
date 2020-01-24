@@ -61,6 +61,7 @@ python manage.py runserver		# Run the project
 
 ------------
 ###REST API
+
 ```
 http://127.0.0.1:8000/api/persons/		# JSON objects of persons
 http://127.0.0.1:8000/api/categories/		# JSON objects of categories
@@ -71,7 +72,6 @@ http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
 ```
 
 ------------
-
 ###TODO list
 
 - [ ] Create useful tests
