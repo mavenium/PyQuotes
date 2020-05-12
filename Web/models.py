@@ -7,6 +7,10 @@ class Person(models.Model):
     biography = models.TextField(verbose_name="Biography :")
     picture = models.FileField(verbose_name="Picture :", upload_to='persons/')
 
+    @staticmethod
+    def get_absolute_url():
+        return reverse("create_person")
+
     def __str__(self):
         return self.full_name
 
