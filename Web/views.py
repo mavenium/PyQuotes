@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -45,7 +46,7 @@ class QuotesByCategory(Index):
         return Quote.objects.filter(category=self.kwargs['category_pk'])
 
 
-class CategoryCreateView(SuccessMessageMixin, generic.CreateView, Master):
+class CategoryCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView, Master):
     fields = ["title"]
     model = Category
     success_url = '/create/category'
