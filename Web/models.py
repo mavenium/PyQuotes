@@ -32,6 +32,10 @@ class Quote(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
 
+    @staticmethod
+    def get_absolute_url():
+        return reverse("create_quote")
+
     def display_category(self):
         return ', '.join([cat.title for cat in self.category.all()])
 

@@ -43,6 +43,9 @@
                             <li class="nav-item {% if 'person' in request.path %}active{% endif %}">
                                 <a class="nav-link" href="{% url 'create_person' %}">Create Person</a>
                             </li>
+                            <li class="nav-item {% if 'quote' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'create_quote' %}">Create Quote</a>
+                            </li>
                             {% endif %} 
                         </ul>
                     </div>

@@ -58,3 +58,10 @@ class PersonCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVi
     model = Person
     success_url = '/create/person'
     success_message = 'Person was created successfully'
+
+
+class QuoteCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView, Master):
+    fields = ["person", "category", "content"]
+    model = Quote
+    success_url = '/create/quote'
+    success_message = 'Quote was created successfully'
