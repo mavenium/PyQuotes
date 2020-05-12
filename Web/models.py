@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Person(models.Model):
@@ -13,6 +14,10 @@ class Person(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name="Category Title :")
     # slug = models.SlugField(max_length=100, verbose_name="Category Slug :")
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse("create_category")
 
     def __str__(self):
         return self.title

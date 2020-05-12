@@ -1,4 +1,5 @@
 from django.views import generic
+from django.contrib.messages.views import SuccessMessageMixin
 
 from Web.models import Quote, Person, Category
 
@@ -42,3 +43,10 @@ class QuotesByPerson(Index):
 class QuotesByCategory(Index):
     def get_queryset(self):
         return Quote.objects.filter(category=self.kwargs['category_pk'])
+
+
+class CategoryCreateView(SuccessMessageMixin, generic.CreateView, Master):
+    fields = ["title"]
+    model = Category
+    success_url = '/create/category'
+    success_message = "Category was created successfully"

@@ -1,11 +1,12 @@
 from django.urls import path
 
-from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory
+from Web.views import Index, Persons, Random, QuotesByPerson, QuotesByCategory, CategoryCreateView
 from Web.api_views import APIPersons, APICategories, APIQuotes, APIQuotesByPerson, APIQuotesByCategory, APIQuotesRandom
 
 urlpatterns = [
     path('', Index.as_view(), name='index'),
     path('persons/', Persons.as_view(), name='persons'),
+    path('create/category', CategoryCreateView.as_view(), name='create_category'),
     path('qbp/<person_pk>/', QuotesByPerson.as_view(), name='quotes_by_person'),
     path('qbc/<category_pk>/', QuotesByCategory.as_view(), name='quotes_by_category'),
     path('random/', Random.as_view(), name='random'),
