@@ -66,7 +66,7 @@ python manage.py runserver		# Run the project
 http://127.0.0.1:8000/api/persons/		# JSON objects of persons
 http://127.0.0.1:8000/api/categories/		# JSON objects of categories
 http://127.0.0.1:8000/api/quotes/		# JSON objects of quotes
-http://127.0.0.1:8000/api/quotes_random/		# JSON objects of quotes by random
+http://127.0.0.1:8000/api/quotes_random/	# JSON objects of quotes by random
 http://127.0.0.1:8000/api/qbp/pk/		# JSON objects of quotes by person pk
 http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
 ```
@@ -75,3 +75,6 @@ http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
 ### TODO list
 
 - [ ] Create useful tests
+- [ ] Create user profile & Login/Logout forms in front-end
+- [ ] Create update form for person/category/quote objects models in front-end
+- [ ] Create delete action for person/category/quote objects models in front-end

@@ -1,4 +1,6 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
+from django.contrib.messages.views import SuccessMessageMixin
 
 from Web.models import Quote, Person, Category
 
@@ -42,3 +44,24 @@ class QuotesByPerson(Index):
 class QuotesByCategory(Index):
     def get_queryset(self):
         return Quote.objects.filter(category=self.kwargs['category_pk'])
+
+
+class CategoryCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView, Master):
+    fields = ["title"]
+    model = Category
+    success_url = '/create/category'
+    success_message = "Category was created successfully"
+
+
+class PersonCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView, Master):
+    fields = ["full_name", "biography", "picture"]
+    model = Person
+    success_url = '/create/person'
+    success_message = 'Person was created successfully'
+
+
+class QuoteCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView, Master):
+    fields = ["person", "category", "content"]
+    model = Quote
+    success_url = '/create/quote'
+    success_message = 'Quote was created successfully'
