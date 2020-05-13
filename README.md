@@ -11,12 +11,15 @@ PyQuotes is a Django-based web application and REST API. That will allow you to 
 - Has a category section to create and edit category (Title)
 - Has a quote section to create and edit quote (Content, Person, Category)
 - Has a REST-API to show content in other client user interface
+- Add a category from front-end
+- Add a person from front-end
+- Add a quote from front-end
 - Displays the list of quotes as paged in Index
 - Contains random quotes display page
 - Displays the list of people as paged
 - Show list of persons as widgets
 - Show list of categories as widgets
-- Show quotes by perosn
+- Show quotes by person
 - Show quotes by category
 - Used by "Django Admin" to manage quotes and categories and persons
 - Used by "Bootstrap v4.x" to create front-end web application
@@ -39,6 +42,15 @@ PyQuotes is a Django-based web application and REST API. That will allow you to 
 
 ![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Quotes%20By%20Category.png)
 > Show Quotes By Category
+>
+![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Create_Category.png)
+> Add Category From Front-End
+>
+![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Create_Person.png)
+> Add Person From Front-End
+>
+![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Create_Quote.png)
+> Add Quote From Front-End
 
 ------------
 ### How to install and run (GNU/Linux and Mac)
