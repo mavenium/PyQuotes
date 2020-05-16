@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+
+    <title>PyQuotes | {% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<!-- container -->
+<div class="container">
+
+    <!-- row -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- header -->
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-3 mb-3">
+                    <a class="navbar-brand" href="{% url 'index' %}">PyQuotes</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item {% if '/' == request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'index' %}">Home</a>
+                            </li>
+                            <li class="nav-item {% if 'persons' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'persons' %}">Persons</a>
+                            </li>
+                            <li class="nav-item {% if 'random' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'random' %}">Random</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item {% if 'category' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'create_category' %}">Create Category</a>
+                            </li>
+                            <li class="nav-item {% if 'person' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'create_person' %}">Create Person</a>
+                            </li>
+                            <li class="nav-item {% if 'quote' in request.path %}active{% endif %}">
+                                <a class="nav-link" href="{% url 'create_quote' %}">Create Quote</a>
+                            </li>
+                            {% endif %} 
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- /header -->
+
+        </div>
+    </div>
+    <!-- /row -->
+
+    <!-- row -->
+    <div class="row">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    <!-- /row -->
+
+    <!-- row -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- Master-Footer -->
+            <footer class="navbar navbar-expand-lg navbar-dark bg-dark rounded mt-3 mb-3 text-white" id="master-footer">
+                <strong>
+                    Powered By <a class="text-light" href="https://github.com/mavenium/PyQuotes" title="PyQuotes">PyQuotes</a>
+                </strong>
+            </footer>
+            <!-- /Master-Footer -->
+
+        </div>
+    </div>
+    <!-- /row -->
+
+</div>
+<!-- /container -->
+
+<!-- JavaScript -->
+<script src="{% static '/js/jquery.min.js' %}"></script>
+<script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+<!-- /JavaScript -->
+
+</body>
+</html>
