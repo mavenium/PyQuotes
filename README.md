@@ -87,6 +87,6 @@ http://127.0.0.1:8000/api/qbc/pk/		# JSON objects of quotes by category pk
 ### TODO list
 
 - [ ] Create useful tests
-- [ ] Create user profile & Login/Logout forms in front-end
+- [x] Create user profile & Login/Logout forms in front-end
 - [ ] Create update form for person/category/quote objects models in front-end
 - [ ] Create delete action for person/category/quote objects models in front-end
