@@ -1,0 +1,34 @@
+{% extends 'other_master.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+    {{ super }} Login
+{% endblock %}
+
+{% block content %}
+
+    <!-- col-md-6 -->
+    <div class="col-md-6 offset-3">
+
+        <div class="card">
+            <div class="card-header">
+                <strong>Login</strong>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            {% render_field field class="form-control" %}
+                        </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-primary" value="Login">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- /col-md-6 -->
+{% endblock %}
