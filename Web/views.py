@@ -1,4 +1,6 @@
+from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
 
@@ -65,3 +67,11 @@ class QuoteCreateView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVie
     model = Quote
     success_url = '/create/quote'
     success_message = 'Quote was created successfully'
+
+
+class LogoutView(generic.RedirectView):
+    url = reverse_lazy("index")
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return super().get(request, *args, **kwargs)
