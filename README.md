@@ -26,6 +26,13 @@ PyQuotes is a Django-based web application and REST API. That will allow you to 
 - Used by "Sqlite" to create DB
 
 ------------
+### Special Thanks
+
+| Python | Django | Pycharm |
+| ------------- | ------------- | ------------- |
+| [![](https://s17.picofile.com/file/8418101118/python.png)](https://www.python.org "Python")  | [![](https://s17.picofile.com/file/8418100976/django.png)](https://www.djangoproject.com "Django")  | [![](https://s17.picofile.com/file/8418101034/pycharm.png)](https://www.jetbrains.com/pycharm/ "Pycharm")  |
+
+------------
 ### Screenshots
 
 ![](https://raw.githubusercontent.com/mavenium/PyQuotes/master/Screenshots/Home.png)
